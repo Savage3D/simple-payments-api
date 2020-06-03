@@ -1,6 +1,6 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const { PORT } = require('./config');
 const { initDb } = require('./services/db');
 const usersRoutes = require('./routes/users');
 const errors = require('./middlewares/errors');
@@ -16,7 +16,7 @@ async function main() {
 	app.use('/api/users', usersRoutes);
 	app.use(errors);
 
-	app.listen(PORT);
+	app.listen(process.env.PORT);
 }
 
 main();

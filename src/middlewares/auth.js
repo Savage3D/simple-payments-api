@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
 const createError = require('http-errors');
-const { JWT_KEY } = require('../config');
 
 function auth(req, res, next) {
 	const authHeader = req.headers.authorization;
@@ -11,7 +10,7 @@ function auth(req, res, next) {
 	}
 
 	try {
-		const decoded = jwt.verify(token, JWT_KEY);
+		const decoded = jwt.verify(token, process.env.JWT_KEY);
 		req.userName = decoded.name;
 		return next();
 	} catch (error) {

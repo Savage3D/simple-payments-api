@@ -1,16 +1,15 @@
 const { MongoClient } = require('mongodb');
-const { DB_URI, DB_NAME } = require('../config');
 
-const client = new MongoClient(DB_URI, { useUnifiedTopology: true });
+const client = new MongoClient(process.env.DB_URI, { useUnifiedTopology: true });
 let db = null;
 
 async function initDb() {
 	try {
 		if (db) throw Error('DB is already connected');
 		await client.connect();
-		db = client.db(DB_NAME);
+		db = client.db('test-task-dev');
 	} catch (error) {
-		console.log(`DB connection failed\n${error.stack}`);
+		throw Error(`DB connection failed\n${error.stack}`);
 	}
 }
 

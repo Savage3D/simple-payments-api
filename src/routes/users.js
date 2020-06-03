@@ -2,7 +2,6 @@ const { Router } = require('express');
 const createError = require('http-errors');
 const { escape } = require('validator');
 const jwt = require('jsonwebtoken');
-const { JWT_KEY } = require('../config');
 const usersService = require('../services/users');
 const paymentService = require('../services/payment');
 const auth = require('../middlewares/auth');
@@ -23,7 +22,7 @@ router.post('/login', async (req, res, next) => {
 			user = await usersService.create(name);
 		}
 
-		const token = jwt.sign({ name }, JWT_KEY);
+		const token = jwt.sign({ name }, process.env.JWT_KEY);
 
 		return res.status(200).send({ user, token });
 	} catch (error) {
