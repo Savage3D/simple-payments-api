@@ -3,6 +3,8 @@ The repo contains the backend part of the "Simple Payments App".
 A deployed version ===> https://simple-payments-api.herokuapp.com/api/users (see below, what else endpoints are available)
 
 You can find a frontend part (done on React) here:
+- https://simple-payments-react.herokuapp.com/ (deployed)
+- https://github.com/Savage3D/simple-payments-react (code)
 
 ## A couple of words about the app
 The "Simple Payments App" allows users to register and make payments to each other. 
@@ -20,8 +22,8 @@ The backend part is the REST API with the following endpoints:
 - /api/users/makepayment - for transferring money from the user's account to another one (the user must be logged in);
 
 ## Technology stack:
-- Node.js
-- express.js
-- MongoDB (the native driver)
-- validator.js
-- JSON Web Token (jsonwebtoken.js)
+- Node.js;
+- express.js;
+- MongoDB (the native driver);
+- validator.js;
+- JSON Web Token (jsonwebtoken.js);
