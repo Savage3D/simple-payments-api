@@ -12,7 +12,7 @@ async function create(name, balance = 0, payments = []) {
 async function findAll() {
 	const users = await getDb()
 		.collection(usersCollection)
-		.find({}, { name: 1, balance: 1 })
+		.find()
 		.toArray();
 	return users;
 }

@@ -33,7 +33,8 @@ router.post('/login', async (req, res, next) => {
 router.get('/', async (req, res, next) => {
 	try {
 		const users = await usersService.findAll();
-		res.status(200).send(users);
+		const usersMinInfo = users.map((u) => ({ name: u.name, balance: u.balance }));
+		res.status(200).send(usersMinInfo);
 	} catch (error) {
 		next(createError(500, error.message, { stack: error.stack }));
 	}
