@@ -24,7 +24,7 @@
     "http-errors": "^1.7.3",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.5.8",
-    "validator": "^13.0.0"
+    "validator": "^13.7.0"
   },
   "engines": {
     "node": "14.x"
